@@ -192,6 +192,12 @@
         android:title="@string/dial_pad_tones_title"
         android:order="-50"/>
 
+    <!-- Screenshot sound -->
+    <SwitchPreference
+        android:key="screenshot_shutter_sound"
+        android:title="@string/screenshot_shutter_sound_title"
+        android:order="-49"/>
+
     <!-- Screen locking sounds -->
     <SwitchPreference
         android:key="screen_locking_sounds"
