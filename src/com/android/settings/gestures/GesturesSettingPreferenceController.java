@@ -83,6 +83,7 @@ public class GesturesSettingPreferenceController extends BasePreferenceControlle
         controllers.add(new QuickTorchPreferenceController(context, FAKE_PREF_KEY));
         controllers.add(new PlaybackControlPreferenceController(context, FAKE_PREF_KEY));
         controllers.add(new PartialScreenshotPreferenceController(context, FAKE_PREF_KEY));
+        controllers.add(new SwipeToScreenshotPreferenceController(context, FAKE_PREF_KEY));
         return controllers;
     }
 }

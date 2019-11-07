@@ -120,6 +120,12 @@
         android:fragment="com.android.settings.gestures.QuickTorchSettings" 
         settings:controller="com.android.settings.gestures.QuickTorchPreferenceController" />
 
+	<Preference
+        android:key="three_finger_gesture_summary"
+        android:title="@string/three_finger_gesture"
+        android:fragment="com.android.settings.gestures.SwipeToScreenshotGestureSettings"
+        settings:controller="com.android.settings.gestures.SwipeToScreenshotPreferenceController" />
+
     <Preference
         android:key="partial_screenshot_summary"
         android:title="@string/click_partial_screenshot_title"
