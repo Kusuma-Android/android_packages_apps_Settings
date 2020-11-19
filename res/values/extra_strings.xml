@@ -201,4 +201,7 @@
     <!-- Hardware info -->
     <string name="soc_model">SoC</string>
     <string name="total_ram">RAM</string>
+
+    <!-- Radio Info -->
+    <string name="radio_info_title">Radio info</string>
 </resources>
