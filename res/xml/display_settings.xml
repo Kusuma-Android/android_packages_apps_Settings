@@ -200,6 +200,16 @@
             android:title="@string/tap_to_wake"
             android:summary="@string/tap_to_wake_summary"/>
 
+        <!-- Double tap to show ambient display -->
+        <lineageos.preference.SystemSettingSwitchPreference
+            android:key="doze_trigger_doubletap"
+            android:title="@string/doze_double_tap_title"
+            android:summary="@string/doze_double_tap_summary" 
+            android:dependency="tap_to_wake"
+            android:defaultValue="false"
+            settings:requiresConfig="@*android:bool/config_supportDoubleTapWake" 
+            settings:userRestriction="no_ambient_display" />
+
         <!-- Prevent accidental wake-up -->
         <lineageos.preference.LineageSystemSettingSwitchPreference
             android:key="proximity_on_wake"

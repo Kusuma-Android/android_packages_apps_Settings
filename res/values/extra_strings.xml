@@ -273,4 +273,6 @@
     <string name="doze_gesture_ambient_summary">Override wake device with ambient display</string>
     <string name="gesture_wake_ambient">Show ambient display</string>
     <string name="gesture_wake">Wake device</string>
+    <string name="doze_double_tap_title">@string/ambient_display_tap_screen_title</string>
+    <string name="doze_double_tap_summary">Double-tap anywhere on the screen to show ambient display</string>
 </resources>
