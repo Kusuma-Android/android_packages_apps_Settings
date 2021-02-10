@@ -194,4 +194,7 @@
     <string name="app_volume">Apps volume</string>
     <string name="app_volume_title">@string/app_volume</string>
     <string name="app_volume_summary">Set volume levels for each app</string>
+
+    <!-- Deep Sleep percentage in device info -->
+    <string name="status_sleep_time">Deep sleep</string>
 </resources>
