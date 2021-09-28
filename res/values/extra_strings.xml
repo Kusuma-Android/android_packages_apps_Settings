@@ -275,4 +275,8 @@
     <string name="gesture_wake">Wake device</string>
     <string name="doze_double_tap_title">@string/ambient_display_tap_screen_title</string>
     <string name="doze_double_tap_summary">Double-tap anywhere on the screen to show ambient display</string>
+
+    <!-- Hide apps -->
+    <string name="hide">Archive</string>
+    <string name="unhide">Restore</string>
 </resources>
