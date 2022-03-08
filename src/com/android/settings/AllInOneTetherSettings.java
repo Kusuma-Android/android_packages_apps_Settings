@@ -128,6 +128,7 @@ public class AllInOneTetherSettings extends RestrictedDashboardFragment
     private WifiTetherSecurityPreferenceController mSecurityPreferenceController;
     private WifiTetherHiddenSsidPreferenceController mHiddenSsidPreferenceController;
     private WifiTetherClientManagerPreferenceController mClientPreferenceController;
+    private WifiTetherAutoOffPreferenceController mAutoOffPreferenceController;
     private PreferenceGroup mWifiTetherGroup;
     private boolean mShouldShowWifiConfig = true;
     private boolean mHasShownAdvance;
@@ -198,6 +199,7 @@ public class AllInOneTetherSettings extends RestrictedDashboardFragment
         mApBandPreferenceController = use(WifiTetherApBandPreferenceController.class);
         mClientPreferenceController = use(WifiTetherClientManagerPreferenceController.class);
         mHiddenSsidPreferenceController = use(WifiTetherHiddenSsidPreferenceController.class);
+        mAutoOffPreferenceController = use(WifiTetherAutoOffPreferenceController.class);
         getSettingsLifecycle().addObserver(use(UsbTetherPreferenceController.class));
         getSettingsLifecycle().addObserver(use(BluetoothTetherPreferenceController.class));
         getSettingsLifecycle().addObserver(use(EthernetTetherPreferenceController.class));
@@ -394,6 +396,7 @@ public class AllInOneTetherSettings extends RestrictedDashboardFragment
                     mPasswordPreferenceController.getPasswordValidated(securityType),
                     SoftApConfiguration.SECURITY_TYPE_WPA2_PSK);
         }
+        mAutoOffPreferenceController.updateConfig(configBuilder);
         mClientPreferenceController.updateConfig(configBuilder);
         configBuilder.setBand(mApBandPreferenceController.getBandIndex());
         configBuilder.setHiddenSsid(mHiddenSsidPreferenceController.isHiddenSsidEnabled());
@@ -406,6 +409,7 @@ public class AllInOneTetherSettings extends RestrictedDashboardFragment
         mPasswordPreferenceController.updateDisplay();
         mApBandPreferenceController.updateDisplay();
         mHiddenSsidPreferenceController.updateDisplay();
+        mAutoOffPreferenceController.updateDisplay();
     }
 
     @Override
