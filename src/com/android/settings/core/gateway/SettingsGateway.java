@@ -179,6 +179,7 @@ import com.android.settings.wifi.calling.WifiCallingSettings;
 import com.android.settings.wifi.details.WifiNetworkDetailsFragment;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSettings2;
+import com.android.settings.wifi.tether.WifiTetherClientManager;
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
 public class SettingsGateway {
@@ -349,7 +350,8 @@ public class SettingsGateway {
             TurnScreenOnSettings.class.getName(),
             TurnScreenOnDetails.class.getName(),
             TwoButtonNavigationSettingsFragment.class.getName(),
-            PhysicalButtonNavigationSettingsFragment.class.getName()
+            PhysicalButtonNavigationSettingsFragment.class.getName(),
+            WifiTetherClientManager.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
