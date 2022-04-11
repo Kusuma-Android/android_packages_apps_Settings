@@ -207,4 +207,14 @@
 
     <!-- Battery optimization -->
     <string name="high_power_apps_summary">Control battery usage for each apps</string>
+
+    <!-- Battery Health -->
+    <string name="battery_health_title">Battery health</string>
+    <string name="battery_health_summary">Learn more about your battery reminding life</string>
+    <string name="battery_maximum_capacity_title">Maximum capacity</string>
+    <string name="battery_maximum_capacity_summary">This is a measure of battery capacity relative to when it was new. Lower capacity may result in fewer hours of usage between charges.</string>
+    <string name="battery_health_footer">Phone battery are consumable components that become less effective as they age.\n\nMaximum capacity is a measure of battery capacity relative to when it was new. Lower capacity may result in fewer hours of usage between charges.\n\nCharge cycles is the number of times the battery has been charged. It is a measure of how long the battery has been in use.</string>
+    <string name="battery_charge_cycles_title">Charge cycles</string>
+    <string name="battery_charge_cycles_summary">This is the number of times the battery has been charged. It is a measure of how long the battery has been in use.</string>
+    <string name="keywords_battery_health">battery, health, charge, cycles, capacity</string>
 </resources>
