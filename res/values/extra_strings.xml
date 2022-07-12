@@ -204,4 +204,7 @@
 
     <!-- Radio Info -->
     <string name="radio_info_title">Radio info</string>
+
+    <!-- Battery optimization -->
+    <string name="high_power_apps_summary">Control battery usage for each apps</string>
 </resources>
