@@ -139,11 +139,11 @@
             settings:searchable="false"
             settings:controller="com.android.settings.gestures.ScreenOffUdfpsPreferenceController" />
 
-        <SwitchPreference
-            android:key="ambient_display_notification"
+        <lineageos.preference.SecureSettingSwitchPreference
+            android:key="doze_for_notifications"
             android:title="@string/doze_title"
             android:summary="@string/doze_summary"
-            settings:controller="com.android.settings.display.AmbientDisplayNotificationsPreferenceController" />
+            android:defaultValue="true" />
 
         <lineageos.preference.RemotePreference
             android:key="doze_device_settings"
