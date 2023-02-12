@@ -199,6 +199,6 @@
     <string name="status_sleep_time">Deep sleep</string>
 
     <!-- Hardware info -->
-    <string name="platform_revision">Platform</string>
-    <string name="total_ram">Total RAM</string>
+    <string name="soc_model">SoC</string>
+    <string name="total_ram">RAM</string>
 </resources>
