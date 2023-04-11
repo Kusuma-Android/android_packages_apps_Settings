@@ -262,4 +262,9 @@
     <!-- Power menu on secure keyguard -->
     <string name="use_power_menu_on_secure_keyguard_title">Access power menu from locked screen</string>
     <string name="use_power_menu_on_secure_keyguard_summary">Access power off and restart actions without unlocking your phone or tablet</string>
+
+    <!-- Ambient display gestures-->
+    <string name="double_tap_title">Use double-tap gesture</string>
+    <string name="pick_up_gesture_title">Use lift gesture</string>
+    <string name="ambient_gesture_category">Use the gesture to</string>
 </resources>
