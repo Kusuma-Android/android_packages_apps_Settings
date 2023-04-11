@@ -267,4 +267,10 @@
     <string name="double_tap_title">Use double-tap gesture</string>
     <string name="pick_up_gesture_title">Use lift gesture</string>
     <string name="ambient_gesture_category">Use the gesture to</string>
+
+    <!-- Ambient wake toggles -->
+    <string name="doze_gesture_ambient_title">Show ambient display</string>
+    <string name="doze_gesture_ambient_summary">Override wake device with ambient display</string>
+    <string name="gesture_wake_ambient">Show ambient display</string>
+    <string name="gesture_wake">Wake device</string>
 </resources>
