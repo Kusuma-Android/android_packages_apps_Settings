@@ -254,4 +254,8 @@
     <!-- Full screen apps -->
     <string name="display_cutout_force_fullscreen_title">Full screen apps</string>
     <string name="display_cutout_force_fullscreen_summary">Allow apps to display beyond device cutout</string>
+
+    <!-- Tiles on secure keyguard -->
+    <string name="use_tiles_on_secure_keyguard_title">Access Quick Settings from locked screen</string>
+    <string name="use_tiles_on_secure_keyguard_summary">Access sensitive Quick Settings tiles without unlocking your phone or tablet</string>
 </resources>

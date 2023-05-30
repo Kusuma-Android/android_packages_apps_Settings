@@ -69,6 +69,12 @@
             android:summary="@string/lockscreen_trivial_controls_summary"
             settings:controller="com.android.settings.display.ControlsTrivialPrivacyPreferenceController"/>
 
+        <lineageos.preference.SystemSettingSwitchPreference
+            android:key="use_tiles_on_secure_keyguard"
+            android:title="@string/use_tiles_on_secure_keyguard_title"
+            android:summary="@string/use_tiles_on_secure_keyguard_summary"
+            android:defaultValue="true" />
+
         <Preference
             android:key="customizable_lock_screen_quick_affordances"
             android:title="@string/lockscreen_quick_affordances_title"
