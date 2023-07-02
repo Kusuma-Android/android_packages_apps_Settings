@@ -17,6 +17,7 @@
 package com.android.settings.gestures;
 
 import android.content.Context;
+import android.hardware.display.AmbientDisplayConfiguration;
 import android.provider.Settings;
 import android.widget.Switch;
 
@@ -39,6 +40,7 @@ public class PickupGestureInsidePreferenceController extends AbstractPreferenceC
 
     private final boolean mDefault;
     private final Context mContext;
+    private AmbientDisplayConfiguration mAmbientConfig;
     private MainSwitchPreference mSwitch;
     private SecureSettingSwitchPreference mAmbientPref;
 
@@ -88,7 +90,7 @@ public class PickupGestureInsidePreferenceController extends AbstractPreferenceC
 
     @Override
     public boolean isAvailable() {
-        return true;
+        return getAmbientConfig().dozePickupSensorAvailable();
     }
 
     @Override
@@ -101,5 +103,13 @@ public class PickupGestureInsidePreferenceController extends AbstractPreferenceC
     private void updateAmbientEnablement(boolean enabled) {
         if (mAmbientPref == null) return;
         mAmbientPref.setEnabled(enabled);
+    }
+
+    private AmbientDisplayConfiguration getAmbientConfig() {
+        if (mAmbientConfig == null) {
+            mAmbientConfig = new AmbientDisplayConfiguration(mContext);
+        }
+
+        return mAmbientConfig;
     }
 }
