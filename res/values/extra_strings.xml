@@ -113,6 +113,7 @@
     <string name="navigation_bar_enable_taskbar_disabled_button">To enable, first change navigation mode to the 3-button navigation</string>
 
     <!-- Gesture navigation -->
+    <string name="gesture_navigation_settings_activity_title">@string/edge_to_edge_navigation_title</string>
     <string name="navigation_bar_edge_long_swipe_title">Edge long swipe action</string>
 
     <!-- Physical button navigation -->
