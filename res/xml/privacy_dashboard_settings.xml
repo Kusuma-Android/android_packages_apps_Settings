@@ -103,6 +103,12 @@
         android:summary="@string/use_tiles_on_secure_keyguard_summary"
         android:defaultValue="true" />
 
+    <lineageos.preference.SystemSettingSwitchPreference
+        android:key="use_power_menu_on_secure_keyguard"
+        android:title="@string/use_power_menu_on_secure_keyguard_title"
+        android:summary="@string/use_power_menu_on_secure_keyguard_summary"
+        android:defaultValue="true" />
+
     <!-- Privacy Service -->
     <PreferenceCategory
         android:key="privacy_services"

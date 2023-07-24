@@ -258,4 +258,8 @@
     <!-- Tiles on secure keyguard -->
     <string name="use_tiles_on_secure_keyguard_title">Access Quick Settings from locked screen</string>
     <string name="use_tiles_on_secure_keyguard_summary">Access sensitive Quick Settings tiles without unlocking your phone or tablet</string>
+
+    <!-- Power menu on secure keyguard -->
+    <string name="use_power_menu_on_secure_keyguard_title">Access power menu from locked screen</string>
+    <string name="use_power_menu_on_secure_keyguard_summary">Access power off and restart actions without unlocking your phone or tablet</string>
 </resources>
