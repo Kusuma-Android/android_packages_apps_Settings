@@ -58,6 +58,12 @@ public class RegulatoryInfoDisplayActivity extends CollapsingToolbarBaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Resources resources = getResources();
+
+        if (!resources.getBoolean(R.bool.config_show_regulatory_info)) {
+            finish();   // no regulatory info to display for this device
+        }
+
         boolean regulatoryInfoDrawableExists = false;
 
         final String regulatoryInfoFile = getRegulatoryInfoImageFileName();
@@ -83,8 +89,7 @@ public class RegulatoryInfoDisplayActivity extends CollapsingToolbarBaseActivity
             }
         }
 
-        CharSequence regulatoryText = getResources()
-                .getText(R.string.regulatory_info_text);
+        CharSequence regulatoryText = resources.getText(R.string.regulatory_info_text);
 
         if (regulatoryInfoDrawableExists) {
             View view = getLayoutInflater().inflate(R.layout.regulatory_info, null);
