@@ -160,9 +160,7 @@
             android:key="wifi_ip_address"
             android:order="44"
             android:title="@string/wifi_ip_address"
-            android:summary="@string/summary_placeholder"
-            android:selectable="false"
-            settings:enableCopying="true"/>
+            android:summary="@string/summary_placeholder"/>
 
         <!-- Wi-Fi MAC address -->
         <Preference
