@@ -490,9 +490,9 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
         }
 
         mButtonsPref.setButton2Enabled(enabled);
-        mButtonsPref.setButton4Enabled(enabled);
-        mButtonsPref.setButton4Text(isHidden ? R.string.unhide : R.string.hide);
-        mButtonsPref.setButton4Icon(isHidden ? R.drawable.ic_settings_unhide : R.drawable.ic_settings_hide);
+        mButtonsPref.setButton2Text(isHidden ? R.string.unhide : R.string.hide);
+        mButtonsPref.setButton2Icon(isHidden ? R.drawable.ic_settings_unhide : R.drawable.ic_settings_hide);
+        mButtonsPref.setButton3Enabled(enabled);
     }
 
     /**
@@ -544,9 +544,9 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
     @VisibleForTesting
     void updateForceStopButtonInner(boolean enabled) {
         if (mAppsControlDisallowedBySystem) {
-            mButtonsPref.setButton3Enabled(false);
+            mButtonsPref.setButton4Enabled(false);
         } else {
-            mButtonsPref.setButton3Enabled(enabled);
+            mButtonsPref.setButton4Enabled(enabled);
         }
     }
 
@@ -594,16 +594,16 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
         if (mHomePackages.contains(mAppEntry.info.packageName)
                 || isSystemPackage(mActivity.getResources(), mPm, mPackageInfo)) {
             // Disable button for core system applications.
-            mButtonsPref.setButton2Text(R.string.disable_text)
-                    .setButton2Icon(R.drawable.ic_settings_disable);
+            mButtonsPref.setButton3Text(R.string.disable_text)
+                    .setButton3Icon(R.drawable.ic_settings_disable);
         } else if (mAppEntry.info.enabled && !isDisabledUntilUsed()) {
-            mButtonsPref.setButton2Text(R.string.disable_text)
-                    .setButton2Icon(R.drawable.ic_settings_disable);
+            mButtonsPref.setButton3Text(R.string.disable_text)
+                    .setButton3Icon(R.drawable.ic_settings_disable);
             disableable = !mApplicationFeatureProvider.getKeepEnabledPackages()
                     .contains(mAppEntry.info.packageName);
         } else {
-            mButtonsPref.setButton2Text(R.string.enable_text)
-                    .setButton2Icon(R.drawable.ic_settings_enable);
+            mButtonsPref.setButton3Text(R.string.enable_text)
+                    .setButton3Icon(R.drawable.ic_settings_enable);
             disableable = true;
         }
 
@@ -703,20 +703,20 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
                 .setButton1Text(R.string.launch_instant_app)
                 .setButton1Icon(R.drawable.ic_settings_open)
                 .setButton1OnClickListener(v -> launchApplication())
-                .setButton2Text(R.string.uninstall_text)
-                .setButton2Icon(R.drawable.ic_settings_delete)
-                .setButton2OnClickListener(new UninstallAndDisableButtonListener())
-                .setButton3Text(R.string.force_stop)
-                .setButton3Icon(R.drawable.ic_settings_force_stop)
-                .setButton3OnClickListener(new ForceStopButtonListener())
-                .setButton3Enabled(false)
-                .setButton4OnClickListener(v -> {
+                .setButton2OnClickListener(v -> {
                     mPm.setApplicationHiddenSettingAsUser(mPackageName,
                             !mPm.getApplicationHiddenSettingAsUser(mPackageName,
                                     new UserHandle(mUserId)),
                             new UserHandle(mUserId));
                     refreshUi();
-                });
+                })
+                .setButton3Text(R.string.uninstall_text)
+                .setButton3Icon(R.drawable.ic_settings_delete)
+                .setButton3OnClickListener(new UninstallAndDisableButtonListener())
+                .setButton4Text(R.string.force_stop)
+                .setButton4Icon(R.drawable.ic_settings_force_stop)
+                .setButton4OnClickListener(new ForceStopButtonListener())
+                .setButton4Enabled(false);
     }
 
     private void startListeningToPackageRemove() {
