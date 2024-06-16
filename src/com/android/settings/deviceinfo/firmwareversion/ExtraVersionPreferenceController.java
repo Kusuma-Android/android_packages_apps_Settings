@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2024 Kusuma
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,16 +19,15 @@ package com.android.settings.deviceinfo.firmwareversion;
 import android.content.Context;
 import android.os.SystemProperties;
 
-import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
 
-public class LineageBuildDatePreferenceController extends BasePreferenceController {
+public class ExtraVersionPreferenceController extends BasePreferenceController {
 
-    private static final String TAG = "LineageBuildDateCtrl";
+    private static final String TAG = "ExtraVersionPreferenceController";
+    private static final String EXTRA_PRODUCT_VERSION_CODENAME = "ro.extra.version.codename";
+    private static final String EXTRA_PRODUCT_VERSION_NUMBER = "ro.extra.version.number";
 
-    private static final String KEY_BUILD_DATE_PROP = "ro.build.date";
-
-    public LineageBuildDatePreferenceController(Context context, String key) {
+    public ExtraVersionPreferenceController(Context context, String key) {
         super(context, key);
     }
 
@@ -39,7 +38,8 @@ public class LineageBuildDatePreferenceController extends BasePreferenceControll
 
     @Override
     public CharSequence getSummary() {
-        return SystemProperties.get(KEY_BUILD_DATE_PROP,
-                mContext.getString(R.string.unknown));
+        String kusumaExtraVersionCodename = SystemProperties.get(EXTRA_PRODUCT_VERSION_CODENAME);
+        String kusumaExtraVersionNumber = SystemProperties.get(EXTRA_PRODUCT_VERSION_NUMBER);
+        return kusumaExtraVersionCodename + " (" +  kusumaExtraVersionNumber + ")";
     }
 }
