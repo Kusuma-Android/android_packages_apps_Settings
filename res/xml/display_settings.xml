@@ -68,6 +68,16 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/category_name_global_actions_display">
+
+        <Preference
+            android:key="power_menu"
+            android:title="@string/power_menu_title"
+            android:summary="@string/power_menu_summary"
+            android:fragment="com.android.settings.display.PowerMenuActions" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/category_name_appearance">
 
         <com.android.settings.display.darkmode.DarkModePreference

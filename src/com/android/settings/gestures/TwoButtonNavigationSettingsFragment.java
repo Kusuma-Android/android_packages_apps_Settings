@@ -16,7 +16,7 @@
 
 package com.android.settings.gestures;
 
-import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON_OVERLAY;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_2BUTTON_OVERLAY;
 
 import android.app.settings.SettingsEnums;
 import android.content.ContentResolver;
@@ -26,8 +26,8 @@ import android.os.Bundle;
 
 import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
-import com.android.settings.utils.DeviceUtils;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.utils.DeviceUtils;
 import com.android.settingslib.search.SearchIndexable;
 
 import androidx.preference.ListPreference;
@@ -45,33 +45,24 @@ import static org.lineageos.internal.util.DeviceKeysConstants.*;
 import lineageos.providers.LineageSettings;
 
 /**
- * A fragment that includes settings for 3-button navigation modes.
+ * A fragment that includes settings for 2-button navigation modes.
  */
 @SearchIndexable(forTarget = SearchIndexable.MOBILE)
-public class ButtonNavigationSettingsFragment extends DashboardFragment
+public class TwoButtonNavigationSettingsFragment extends DashboardFragment
         implements Preference.OnPreferenceChangeListener {
 
-    private static final String TAG = "ButtonNavigationSettingsFragment";
+    private static final String TAG = "TwoButtonNavigationSettingsFragment";
 
-    public static final String BUTTON_NAVIGATION_SETTINGS =
-            "com.android.settings.BUTTON_NAVIGATION_SETTINGS";
+    public static final String TWO_BUTTON_NAVIGATION_SETTINGS =
+            "com.android.settings.TWO_BUTTON_NAVIGATION_SETTINGS";
 
     private static final String KEY_NAVIGATION_BACK_LONG_PRESS = "navigation_back_long_press";
     private static final String KEY_NAVIGATION_HOME_LONG_PRESS = "navigation_home_long_press";
     private static final String KEY_NAVIGATION_HOME_DOUBLE_TAP = "navigation_home_double_tap";
-    private static final String KEY_NAVIGATION_APP_SWITCH_LONG_PRESS =
-            "navigation_app_switch_long_press";
-
-    private static final String KEY_NAV_BAR_INVERSE = "sysui_nav_bar_inverse";
-    private static final String KEY_ENABLE_TASKBAR = "enable_taskbar";
 
     private ListPreference mNavigationBackLongPressAction;
     private ListPreference mNavigationHomeLongPressAction;
     private ListPreference mNavigationHomeDoubleTapAction;
-    private ListPreference mNavigationAppSwitchLongPressAction;
-
-    private SwitchPreference mNavBarInverse;
-    private SwitchPreference mEnableTaskbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,8 +77,6 @@ public class ButtonNavigationSettingsFragment extends DashboardFragment
                 org.lineageos.platform.internal.R.integer.config_longPressOnHomeBehavior));
         Action defaultHomeDoubleTapAction = Action.fromIntSafe(res.getInteger(
                 org.lineageos.platform.internal.R.integer.config_doubleTapOnHomeBehavior));
-        Action defaultAppSwitchLongPressAction = Action.fromIntSafe(res.getInteger(
-                org.lineageos.platform.internal.R.integer.config_longPressOnAppSwitchBehavior));
         Action backLongPressAction = Action.fromSettings(resolver,
                 LineageSettings.System.KEY_BACK_LONG_PRESS_ACTION,
                 defaultBackLongPressAction);
@@ -97,9 +86,6 @@ public class ButtonNavigationSettingsFragment extends DashboardFragment
         Action homeDoubleTapAction = Action.fromSettings(resolver,
                 LineageSettings.System.KEY_HOME_DOUBLE_TAP_ACTION,
                 defaultHomeDoubleTapAction);
-        Action appSwitchLongPressAction = Action.fromSettings(resolver,
-                LineageSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION,
-                defaultAppSwitchLongPressAction);
 
         // Navigation bar back long press
         mNavigationBackLongPressAction = initList(KEY_NAVIGATION_BACK_LONG_PRESS,
@@ -112,28 +98,6 @@ public class ButtonNavigationSettingsFragment extends DashboardFragment
         // Navigation bar home double tap
         mNavigationHomeDoubleTapAction = initList(KEY_NAVIGATION_HOME_DOUBLE_TAP,
                 homeDoubleTapAction);
-
-        // Navigation bar app switch long press
-        mNavigationAppSwitchLongPressAction = initList(KEY_NAVIGATION_APP_SWITCH_LONG_PRESS,
-                appSwitchLongPressAction);
-
-        mNavBarInverse = findPreference(KEY_NAV_BAR_INVERSE);
-
-        mEnableTaskbar = findPreference(KEY_ENABLE_TASKBAR);
-        if (mEnableTaskbar != null) {
-            if (!isLargeScreen(requireContext()) || !DeviceUtils.hasNavigationBar()) {
-                getPreferenceScreen().removePreference(mEnableTaskbar);
-            } else if (DeviceUtils.isSwipeUpEnabled(requireContext())) {
-            getPreferenceScreen().findPreference(KEY_ENABLE_TASKBAR).setEnabled(false);
-            getPreferenceScreen().findPreference(KEY_ENABLE_TASKBAR).setSummary(R.string.navigation_bar_enable_taskbar_disabled_button);
-            } else {
-                mEnableTaskbar.setOnPreferenceChangeListener(this);
-                mEnableTaskbar.setChecked(LineageSettings.System.getInt(resolver,
-                        LineageSettings.System.ENABLE_TASKBAR,
-                        isLargeScreen(requireContext()) ? 1 : 0) == 1);
-                toggleTaskBarDependencies(mEnableTaskbar.isChecked());
-            }
-        }
 
         List<Integer> unsupportedValues = new ArrayList<>();
         List<String> entries = new ArrayList<>(
@@ -162,9 +126,6 @@ public class ButtonNavigationSettingsFragment extends DashboardFragment
 
         mNavigationHomeDoubleTapAction.setEntries(actionEntries);
         mNavigationHomeDoubleTapAction.setEntryValues(actionValues);
-
-        mNavigationAppSwitchLongPressAction.setEntries(actionEntries);
-        mNavigationAppSwitchLongPressAction.setEntryValues(actionValues);
     }
 
     @Override
@@ -180,15 +141,6 @@ public class ButtonNavigationSettingsFragment extends DashboardFragment
         } else if (preference == mNavigationHomeDoubleTapAction) {
             handleListChange((ListPreference) preference, newValue,
                     LineageSettings.System.KEY_HOME_DOUBLE_TAP_ACTION);
-            return true;
-        } else if (preference == mNavigationAppSwitchLongPressAction) {
-            handleListChange((ListPreference) preference, newValue,
-                    LineageSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION);
-            return true;
-        } else if (preference == mEnableTaskbar) {
-            toggleTaskBarDependencies((Boolean) newValue);
-            LineageSettings.System.putInt(getContentResolver(),
-                    LineageSettings.System.ENABLE_TASKBAR, ((Boolean) newValue) ? 1 : 0);
             return true;
         }
         return false;
@@ -214,20 +166,6 @@ public class ButtonNavigationSettingsFragment extends DashboardFragment
         LineageSettings.System.putInt(getContentResolver(), setting, Integer.parseInt(value));
     }
 
-    private void toggleTaskBarDependencies(boolean enabled) {
-        enablePreference(mNavBarInverse, !enabled);
-        enablePreference(mNavigationBackLongPressAction, !enabled);
-        enablePreference(mNavigationHomeLongPressAction, !enabled);
-        enablePreference(mNavigationHomeDoubleTapAction, !enabled);
-        enablePreference(mNavigationAppSwitchLongPressAction, !enabled);
-    }
-
-    private void enablePreference(Preference pref, boolean enabled) {
-        if (pref != null) {
-            pref.setEnabled(enabled);
-        }
-    }
-
     @Override
     public int getMetricsCategory() {
         return SettingsEnums.SETTINGS_BUTTON_NAV_DLG;
@@ -235,7 +173,7 @@ public class ButtonNavigationSettingsFragment extends DashboardFragment
 
     @Override
     protected int getPreferenceScreenResId() {
-        return R.xml.button_navigation_settings;
+        return R.xml.two_button_navigation_settings;
     }
 
     @Override
@@ -244,23 +182,17 @@ public class ButtonNavigationSettingsFragment extends DashboardFragment
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.button_navigation_settings) {
+            new BaseSearchIndexProvider(R.xml.two_button_navigation_settings) {
 
         @Override
         protected boolean isPageSearchEnabled(Context context) {
-        return (DeviceUtils.hasNavigationBar() || 
-                DeviceUtils.isKeyDisablerSupported(context)) &&
-                SystemNavigationPreferenceController.isOverlayPackageAvailable(context,
-                NAV_BAR_MODE_3BUTTON_OVERLAY);
-        }
+            boolean isTaskbarEnabled = LineageSettings.System.getInt(context.getContentResolver(),
+                    LineageSettings.System.ENABLE_TASKBAR, isLargeScreen(context) ? 1 : 0) == 1;
 
-        @Override
-        public List<String> getNonIndexableKeys(Context context) {
-            final List<String> keys = super.getNonIndexableKeys(context);
-            if (!isLargeScreen(context) || !DeviceUtils.hasNavigationBar()) {
-                keys.add(KEY_ENABLE_TASKBAR);
-            }
-        return keys;
+            return (DeviceUtils.hasNavigationBar() || 
+                    DeviceUtils.isKeyDisablerSupported(context)) && !isTaskbarEnabled && 
+                    SystemNavigationPreferenceController.isOverlayPackageAvailable(context,
+                    NAV_BAR_MODE_2BUTTON_OVERLAY);
         }
     };
 }

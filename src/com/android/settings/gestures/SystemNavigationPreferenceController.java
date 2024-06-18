@@ -23,15 +23,13 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.RemoteException;
-import android.view.Display;
-import android.view.IWindowManager;
-import android.view.WindowManagerGlobal;
 
 import com.android.settings.R;
+import com.android.settings.utils.DeviceUtils;
 import com.android.settings.core.BasePreferenceController;
 
 public class SystemNavigationPreferenceController extends BasePreferenceController {
+    private static final String TAG = "SystemNavigationPreferenceController";
 
     static final String PREF_KEY_SYSTEM_NAVIGATION = "gesture_system_navigation";
     private static final String ACTION_QUICKSTEP = "android.intent.action.QUICKSTEP_SERVICE";
@@ -52,24 +50,18 @@ public class SystemNavigationPreferenceController extends BasePreferenceControll
         } else if (is2ButtonNavigationEnabled(mContext)) {
             return mContext.getText(R.string.swipe_up_to_switch_apps_title);
         } else {
-            return mContext.getText(R.string.legacy_navigation_title);
+            if (DeviceUtils.hasNavigationBar()) {
+                return mContext.getText(R.string.legacy_navigation_title);
+            } else {
+            	return mContext.getText(R.string.physical_button_navigation_title);
+            }
         }
     }
 
     static boolean isGestureAvailable(Context context) {
-        boolean hasNavigationBar = false;
-        final boolean configEnabled = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_swipe_up_gesture_setting_available);
-
-        try {
-            IWindowManager windowManager = WindowManagerGlobal.getWindowManagerService();
-            hasNavigationBar = windowManager.hasNavigationBar(Display.DEFAULT_DISPLAY);
-        } catch (RemoteException ex) {
-            // no window manager? good luck with that
-        }
         // Skip if the swipe up settings are not available
-        // or if on-screen navbar is disabled (for devices with hardware keys)
-        if (!configEnabled || !hasNavigationBar) {
+        if (!context.getResources().getBoolean(
+                com.android.internal.R.bool.config_swipe_up_gesture_setting_available)) {
             return false;
         }
 

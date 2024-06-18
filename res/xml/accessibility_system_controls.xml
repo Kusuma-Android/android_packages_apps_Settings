@@ -42,6 +42,17 @@
         android:title="@string/accessibility_power_button_ends_call_prerefence_title"
         settings:controller="com.android.settings.accessibility.PowerButtonEndsCallPreferenceController"/>
 
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+        android:key="volume_answer_call"
+        android:title="@string/volume_answer_call_title"
+        android:defaultValue="false" />
+
+    <SwitchPreference
+        android:key="home_answer_call"
+        android:title="@string/home_answer_call_title"
+        android:persistent="false"
+        settings:controller="com.android.settings.accessibility.HomeAnswerCallPreferenceController"/>
+
     <!-- Standard auto-rotation preference that will be shown when device state based auto-rotation
          settings are NOT available. -->
     <SwitchPreference
@@ -60,4 +71,33 @@
         settings:keywords="@string/keywords_auto_rotate"
         settings:controller="com.android.settings.display.DeviceStateAutoRotateOverviewController"/>
 
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+        android:key="volume_wake_screen"
+        android:title="@string/volume_button_wake_title"
+        android:defaultValue="false" />
+
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+        android:key="home_wake_screen"
+        android:title="@string/home_button_wake_title"
+        android:defaultValue="true" />
+
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+        android:key="back_wake_screen"
+        android:title="@string/back_button_wake_title"
+        android:defaultValue="false" />
+
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+        android:key="menu_wake_screen"
+        android:title="@string/menu_button_wake_title"
+        android:defaultValue="false" />
+
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+        android:key="assist_wake_screen"
+        android:title="@string/assist_button_wake_title"
+        android:defaultValue="false" />
+
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+        android:key="app_switch_wake_screen"
+        android:title="@string/app_switch_button_wake_title"
+        android:defaultValue="false" />
 </PreferenceScreen>

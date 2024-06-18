@@ -109,10 +109,12 @@ import com.android.settings.gestures.DoubleTapScreenSettings;
 import com.android.settings.gestures.DoubleTwistGestureSettings;
 import com.android.settings.gestures.GestureNavigationSettingsFragment;
 import com.android.settings.gestures.OneHandedSettings;
+import com.android.settings.gestures.PhysicalButtonNavigationSettingsFragment;
 import com.android.settings.gestures.PickupGestureSettings;
 import com.android.settings.gestures.PowerMenuSettings;
 import com.android.settings.gestures.SwipeToNotificationSettings;
 import com.android.settings.gestures.SystemNavigationGestureSettings;
+import com.android.settings.gestures.TwoButtonNavigationSettingsFragment;
 import com.android.settings.inputmethod.AvailableVirtualKeyboardFragment;
 import com.android.settings.inputmethod.KeyboardLayoutPickerFragment;
 import com.android.settings.inputmethod.PhysicalKeyboardFragment;
@@ -345,7 +347,9 @@ public class SettingsGateway {
             MobileNetworkSettings.class.getName(),
             AppLocaleDetails.class.getName(),
             TurnScreenOnSettings.class.getName(),
-            TurnScreenOnDetails.class.getName()
+            TurnScreenOnDetails.class.getName(),
+            TwoButtonNavigationSettingsFragment.class.getName(),
+            PhysicalButtonNavigationSettingsFragment.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {

@@ -80,6 +80,9 @@ public class GesturesSettingPreferenceController extends BasePreferenceControlle
         controllers.add(new ScreenOffUdfpsPreferenceController(context, FAKE_PREF_KEY)
                 .setConfig(ambientDisplayConfiguration));
         controllers.add(new QuickPulldownPreferenceController(context, FAKE_PREF_KEY));
+        controllers.add(new QuickTorchPreferenceController(context, FAKE_PREF_KEY));
+        controllers.add(new PlaybackControlPreferenceController(context, FAKE_PREF_KEY));
+        controllers.add(new PartialScreenshotPreferenceController(context, FAKE_PREF_KEY));
         return controllers;
     }
 }

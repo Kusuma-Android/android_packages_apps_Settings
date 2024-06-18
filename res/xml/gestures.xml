@@ -119,4 +119,24 @@
         android:title="@string/gesture_prevent_ringing_screen_title"
         android:fragment="com.android.settings.gestures.PreventRingingGestureSettings"
         settings:controller="com.android.settings.gestures.PreventRingingParentPreferenceController" />
+
+    <Preference
+        android:key="playback_control_summary"
+        android:title="@string/volbtn_music_controls_title"
+        android:fragment="com.android.settings.gestures.PlaybackControlSettings" 
+        settings:controller="com.android.settings.gestures.PlaybackControlPreferenceController" 
+        settings:requiresConfig="@*lineageos.platform:integer/config_deviceHardwareKeys"
+        settings:requiresConfigMask="64" />
+
+    <Preference
+        android:key="gesture_quick_torch_summary"
+        android:title="@string/torch_long_press_power_gesture_title"
+        android:fragment="com.android.settings.gestures.QuickTorchSettings" 
+        settings:controller="com.android.settings.gestures.QuickTorchPreferenceController" />
+
+    <Preference
+        android:key="partial_screenshot_summary"
+        android:title="@string/click_partial_screenshot_title"
+        android:fragment="com.android.settings.gestures.PartialScreenshotSettings" 
+        settings:controller="com.android.settings.gestures.PartialScreenshotPreferenceController" />
 </PreferenceScreen>
