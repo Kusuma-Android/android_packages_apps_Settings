@@ -19,18 +19,18 @@
     <string name="advanced_keyboard_settings_title">Setelan lanjutan</string>
     <string name="backup_transport_setting_label">Ubah penyedia cadangan</string>
     <string name="backup_transport_title">Pilih penyedia cadangan</string>
-    <string name="berry_black_theme_title">Hitam</string>
-    <string name="berry_black_theme_summary">Latar belakang hitam untuk tema gelap</string>
+    <string name="berry_black_theme_title">Hitam pekat</string>
+    <string name="berry_black_theme_summary">Latar belakang warna hitam untuk tema gelap</string>
     <string name="lineagelicense_title">Hukum LineageOS</string>
     <string name="device_info_protected_single_press">Ketuk untuk menampilkan info</string>
     <plurals name="show_dev_countdown_cm">
-        <item quantity="other"><xliff:g id="step_count">%1$d</xliff:g> langkah lagi untuk mengaktifkan opsi pengembang.</item>
+        <item quantity="other"><xliff:g id="step_count">%1$d</xliff:g> langkah lagi untuk mengaktifkan opsi developer.</item>
     </plurals>
-    <string name="show_dev_on_cm">Anda adalah seorang pengembang!</string>
-    <string name="show_dev_already_cm">Tidak perlu, Anda telah mengaktifkan opsi pengembang.</string>
+    <string name="show_dev_on_cm">Anda mengaktifkan opsi developer!</string>
+    <string name="show_dev_already_cm">Tidak perlu, Anda telah mengaktifkan opsi developer.</string>
     <string name="peak_refresh_rate_summary_custom">Otomatis meningkatkan rasio pembaruan dari 60 menjadi %1$d Hz untuk beberapa konten. Meningkatkan penggunaan baterai.</string>
     <string name="status_bar_double_tap_to_sleep_title">Ketuk untuk tidur</string>
-    <string name="status_bar_double_tap_to_sleep_summary">Ketukan ganda pada bilah status atau layar kunci untuk mematikan layar</string>
+    <string name="status_bar_double_tap_to_sleep_summary">Ketuk bilah status atau layar kunci dua kali untuk mematikan layar</string>
     <string name="heads_up_notifications_enabled_title">Notifikasi mengambang</string>
     <string name="heads_up_notifications_enabled_summary">Menampilkan pemberitahuan prioritas dalam jendela kecil yang mengambang</string>
     <string name="high_touch_sensitivity_title">Kepekaan sentuh tinggi</string>
@@ -39,7 +39,7 @@
     <string name="increasing_ring_volume_option_title">Meningkatkan volume dering</string>
     <string name="increasing_ring_min_volume_title">Volume awal</string>
     <string name="increasing_ring_ramp_up_time_title">Waktu penguatan</string>
-    <string name="lockscreen_media_art_title">Tampilkan sampul media</string>
+    <string name="lockscreen_media_art_title">Tampilkan sampul gambar media</string>
     <string name="lock_settings_picker_pattern_size_message">Pilih ukuran pola</string>
     <string name="lockpattern_settings_enable_error_path_title">Tunjukkan galat pola</string>
     <string name="lockpattern_settings_enable_dots_title">Tunjukkan titik-titik pola</string>
@@ -71,7 +71,7 @@
     <string name="app_notification_sound_timeout_value_5_minutes">5 menit</string>
     <string name="app_notification_sound_timeout_value_15_minutes">10 menit</string>
     <string name="app_notification_sound_timeout_value_30_minutes">30 menit</string>
-    <string name="auto_brightness_one_shot_title">Kecerahan otomatis satu bidikan</string>
+    <string name="auto_brightness_one_shot_title">Kecerahan adaptif satu bidikan</string>
     <string name="auto_brightness_one_shot_summary">Penyesuaian kecerahan hanya akan terjadi pada saat layar dihidupkan</string>
     <string name="data_usage_app_restrict_all">Izinkan akses jaringan</string>
     <string name="data_usage_app_restrict_all_summary">Aktifkan penggunaan jaringan</string>
@@ -89,8 +89,8 @@
     <string name="touchscreen_gesture_settings_summary">Melakukan berbagai gerakan layar sentuh untuk tindakan cepat</string>
     <string name="touchscreen_hovering_title">Ambang jari di layar sentuh</string>
     <string name="touchscreen_hovering_summary">Mengizinkan Anda mengambang jari di atas layar seperti menggunakan tetikus dalam peramban web, destop jarak jauh, dll</string>
-    <string name="wake_when_plugged_or_unplugged_title">Bangun saat pengisi daya di pasang</string>
-    <string name="wake_when_plugged_or_unplugged_summary">Aktifkan layar ketika menghubungkan atau melepaskan sumber daya</string>
+    <string name="wake_when_plugged_or_unplugged_title">Bangun saat diisi</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Bangunkan perangkat ketika menghubungkan atau melepaskan pengisi daya</string>
     <string name="fast_charging_title">Pengisian daya cepat</string>
     <string name="fast_charging_summary">Nonaktifkan untuk mengurangi panas yang dihasilkan oleh perangkat saat mengisi daya atau untuk memperpanjang masa pakai baterai</string>
     <string name="ambient_display_screen_off_udfps_title" product="default">Tekan lama pada sensor sidik jari untuk membuka kunci ponsel</string>

@@ -5423,7 +5423,7 @@ Pelajari lebih lanjut di g.co/pixel/faceunlock."</string>
     <string name="battery_suggestion_title" product="default" msgid="4811554469047272537">"Tingkatkan masa pakai baterai ponsel"</string>
     <string name="battery_suggestion_summary" msgid="8186720080540016197"></string>
     <string name="gesture_prevent_ringing_screen_title" msgid="8293094715267769349">"Cegah berdering"</string>
-    <string name="gesture_prevent_ringing_title" msgid="5978577898997523581">"Tekan tombol Daya &amp; Naikkan Volume secara bersamaan untuk"</string>
+    <string name="gesture_prevent_ringing_title" msgid="5978577898997523581">"Tekan Daya &amp; Naikkan Volume secara bersamaan untuk"</string>
     <string name="gesture_prevent_ringing_sound_title" msgid="4529077822282099235">"Pintasan untuk mencegah berdering"</string>
     <string name="prevent_ringing_option_vibrate" msgid="5456962289649581737">"Getar"</string>
     <string name="prevent_ringing_option_mute" msgid="7446121133560945051">"Bisukan"</string>
@@ -5719,7 +5719,7 @@ Pelajari lebih lanjut di g.co/pixel/faceunlock."</string>
     <string name="cards_passes_sentence" msgid="1866311782387946944">"Kartu &amp; tiket"</string>
     <string name="cards_passes_lower" msgid="2429722007109957877">"kartu &amp; tiket"</string>
     <string name="power_menu_setting_name" msgid="2394440932633137229">"Tekan &amp; tahan tombol daya"</string>
-    <string name="power_menu_long_press_category_title" msgid="1051146091093775002">"Tekan &amp; dan tahan tombol daya untuk mengakses"</string>
+    <string name="power_menu_long_press_category_title" msgid="1051146091093775002">"Tekan &amp; tahan tombol daya untuk mengakses"</string>
     <string name="power_menu_long_press_for_power_menu_title" msgid="477584639843663599">"Menu daya"</string>
     <string name="power_menu_long_press_for_assistant_title" msgid="6557738348262616455">"Asisten digital"</string>
     <string name="power_menu_summary_long_press_for_assistant" msgid="32706459458422952">"Mengakses asisten digital"</string>
